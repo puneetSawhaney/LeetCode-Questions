@@ -1,0 +1,36 @@
+	My code implements a solution to the problem of adding two numbers represented by linked lists. The linked lists represent non-negative integers, and the digits are stored in reverse order. Here's an explanation of the approach I have followed:
+	
+	1. **Initialization:**
+	   - I start by initializing the `head` of the result linked list to `null`.
+	   - `data` is used to store the sum of digits at a particular position.
+	   - `carry` is used to store the carry value when the sum of digits is greater than or equal to 10.
+	
+	2. **Traversal:**
+	   - I use a `while` loop to iterate through the linked lists `l1` and `l2` as long as either of them is not `null` or there is a carry value.
+	
+	3. **Calculating Sum:**
+	   - Inside the loop, I calculate the sum of digits at the current position:
+	     - `data = carry`: Initialize `data` with the carry from the previous iteration.
+	     - If `l1` is not `null`, add the value of the current node of `l1` to `data`, and move `l1` to the next node.
+	     - If `l2` is not `null`, add the value of the current node of `l2` to `data`, and move `l2` to the next node.
+	
+	4. **Updating Carry and Data:**
+	   - Calculate the new carry as `carry = data / 10`.
+	   - Update `data` as `data = data % 10`.
+	
+	5. **Creating a New Node:**
+	   - Create a new `ListNode` (`curr`) with the calculated `data`.
+	
+	6. **Updating Result Linked List:**
+	   - If `prev` is `null`, set `head` to `curr` (this is the first node in the result linked list).
+	   - If `prev` is not `null`, set the `next` of `prev` to `curr` (linking the current node to the previous one).
+	
+	7. **Move to the Next Iteration:**
+	   - Update `prev` to `curr`, preparing for the next iteration of the loop.
+	
+	8. **Return Result:**
+	   - Once the loop is complete, return the `head` of the resulting linked list.
+	
+The approach I've followed is a straightforward iterative process that mimics the process of adding numbers manually,
+starting from the least significant digit and moving towards the most significant digit, while considering carry values. 
+This solution has a time complexity of O(max(N, M)), where N and M are the lengths of the input linked lists.
