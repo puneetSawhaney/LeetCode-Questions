@@ -1,0 +1,47 @@
+The problem involves converting a given string into a zigzag pattern with a specified number of rows and then reading the result line by line. My code follows a straightforward approach to achieve this.
+
+ Approach Explanation:
+
+1. **Base Case:**
+   - If the number of rows (`numRows`) is 1, return the input string as there will be no zigzag pattern.
+
+2. **Zigzag Pattern Construction:**
+   - Use a `StringBuilder` (`sb`) to build the result string.
+
+   - Iterate through each row (indexed by `i` from 0 to `numRows - 1`).
+
+   - For each row, initialize the current index (`idx`) to the row index (`i`).
+
+   - Determine the steps to move south (`deltaSouth`) and north (`deltaNorth`) within the zigzag pattern based on the current row.
+
+   - Use a boolean variable (`goingSouth`) to track the direction of movement.
+
+3. **Zigzag Traversal:**
+   - Use a while loop to traverse the original string (`s`) and append characters to the result string (`sb`) based on the zigzag pattern.
+
+   - The movement within the zigzag pattern is determined by the conditions:
+     - If it's the first row (`i == 0`), move south.
+     - If it's the last row (`i == numRows - 1`), move north.
+     - For rows in between, alternate between moving south and north.
+
+   - Update the current index (`idx`) based on the calculated delta values and the direction of movement.
+
+   - Toggle the direction by updating the `goingSouth` variable.
+
+4. **Return Result:**
+   - After the traversal is complete, return the result string obtained from the `StringBuilder`.
+
+### Example Explanation:
+
+For the given example, "PAYPALISHIRING" with numRows = 3:
+
+```
+P   A   H   N
+A P L S I I G
+Y   I   R
+```
+
+The code will traverse the zigzag pattern and build the result string "PAHNAPLSIIGYIR". The same approach is applied to the second example with numRows = 4, resulting in the output "PINALSIGYAHRPI".
+
+### Time Complexity:
+The time complexity of this solution is O(N), where N is the length of the input string. The code traverses each character in the input string once.
