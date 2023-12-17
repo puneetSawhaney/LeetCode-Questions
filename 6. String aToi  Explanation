@@ -1,0 +1,39 @@
+
+I have implemented the atoi (ASCII to Integer) function following the specified algorithm. Here's a breakdown of my approach:
+
+### Approach Explanation:
+
+1. **Trim Leading Whitespace:**
+   - Use `s.trim()` to remove leading whitespaces from the input string.
+
+2. **Check for Empty String:**
+   - If the trimmed string is empty, return 0.
+
+3. **Sign and Initializations:**
+   - Initialize a boolean variable `neg` to keep track of the sign of the number.
+   - Initialize a long variable `ans` to store the result.
+
+4. **Iterate Through Characters:**
+   - Use a for loop to iterate through each character in the trimmed string.
+   - For the first character (at index 0), determine the sign based on whether it is '-' or '+' and skip to the next character.
+
+5. **Process Digits:**
+   - For each subsequent character:
+      - Check if it is a digit ('0' to '9').
+      - Convert the digit character to an integer and update the result (`ans`) accordingly.
+      - Check for overflow:
+         - If the number is negative, check if `-ans` is less than `Integer.MIN_VALUE`.
+         - If the number is positive, check if `ans` is greater than `Integer.MAX_VALUE`.
+
+6. **Break on Non-Digit Characters:**
+   - If a non-digit character is encountered, break out of the loop.
+
+7. **Handle Sign and Return Result:**
+   - If the number is negative, negate the result (`ans`).
+   - Return the result as an integer, clamping it to the 32-bit signed integer range.
+
+### Time Complexity:
+   - The time complexity of your solution is O(N), where N is the length of the input string. The algorithm iterates through each character in the string once.
+
+### Space Complexity:
+   - The space complexity is O(1) since you are using a constant amount of extra space, regardless of the input size.
