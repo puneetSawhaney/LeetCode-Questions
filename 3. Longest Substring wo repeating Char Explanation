@@ -1,0 +1,32 @@
+I have implemented the "Sliding Window" approach to solve the problem of finding the length of the longest substring without repeating characters. Here's an explanation of my approach:
+
+1. **Initialization:**
+   - `maxLen` and `curLen` are initialized to 0. These variables are used to keep track of the maximum length of the substring without repeating characters and the current length being considered, respectively.
+
+   - `set` is a boolean array of size 256, representing ASCII characters. It is used to keep track of the presence of characters in the current substring.
+
+   - `i` and `j` are pointers initialized to 0 and -1, respectively.
+
+2. **Sliding Window Iteration:**
+   - The main logic is within the while loop that iterates through the string `s` from index `i` to the end.
+
+3. **Character Acquisition and Release:**
+   - Inside the loop, you acquire the character at index `i` (`c_acquire`), and then check if it is already present in the current substring by examining the `set` array.
+   
+   - If it is present, a duplicate character is found. In this case, I release characters from the start of the substring until the duplicate character (`c_release`).
+   
+   - The characters are released by moving the `j` pointer to the right and marking the released characters as not present in the `set` array.
+
+4. **Acquire Character and Update Length:**
+   - After releasing duplicate characters, I acquire the current character (`c_acquire`), mark it as present in the `set` array, and update the current length (`curLen`) as `i - j`.
+
+5. **Update Maximum Length:**
+   - If the current length is greater than the maximum length (`maxLen`), I update `maxLen`.
+
+6. **Move to the Next Character:**
+   - Increment the `i` pointer to move to the next character in the string.
+
+7. **Return Result:**
+   - After the loop is complete, the function returns the maximum length of the substring without repeating characters.
+
+This approach has a time complexity of O(N), where N is the length of the input string. It uses two pointers (`i` and `j`) to efficiently track and update the substring without repeating characters.
