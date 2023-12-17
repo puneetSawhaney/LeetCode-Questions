@@ -1,0 +1,27 @@
+My code implements a solution to the "Two Sum" problem. The problem statement is about finding two numbers in an array that add up to a given target. Here's a breakdown of my code:
+
+1. **Pair Class:**
+   - I have a nested class `Pair` that represents a pair of values - the value itself (`val`) and its index in the original array (`idx`).
+   - This class implements the `Comparable` interface, allowing instances of `Pair` to be compared based on their values.
+
+2. **Sorting Pairs:**
+   - I created an array of `Pair` objects, where each element of the original `nums` array is paired with its index.
+   - I sort the array of pairs based on the values.
+
+3. **Two-Pointer Approach:**
+   - I initialize two pointers, `li` (left index) and `ri` (right index), to the beginning and end of the sorted array, respectively.
+
+4. **Finding the Pair:**
+   - I iterate through the sorted pairs using a while loop.
+   - Inside the loop, I compare the sum of the values pointed to by `li` and `ri` with the target.
+     - If the sum is less than the target, I move the left pointer (`li`) to the right.
+     - If the sum is greater than the target, I move the right pointer (`ri`) to the left.
+     - If the sum equals the target, I've found the pair, and I store their indices in the `res` array.
+
+5. **Returning Result:**
+   - The function returns the `res` array containing the indices of the two numbers that add up to the target.
+
+6. **Time Complexity:**
+   - The time complexity of my solution is primarily dominated by the sorting step, which is O(n log n), where n is the length of the `nums` array. The two-pointer traversal is O(n).
+
+In summary, my code efficiently solves the Two Sum problem by using a sorting approach and a two-pointer technique.
