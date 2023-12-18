@@ -1,0 +1,45 @@
+My Solution is a Java implementation of the threeSum problem, where the goal is to find all unique triplets in an array that sum up to a target value of zero. The code uses a combination of sorting, two-pointer technique, and a HashSet to achieve this. Let's break down the code and explain each part:
+
+### Algorithm:
+
+1. **Initialize Variables:**
+   - `result`: A list of lists to store the unique triplets.
+   - `set`: A HashSet to store unique combinations of triplets using a custom hash function.
+   - `Target`: The target sum, which is set to zero in this case.
+   - Sort the input array `nums` in non-decreasing order.
+
+2. **Iterate Through the Array:**
+   - Use a `for` loop to iterate through each element in the sorted array `nums`.
+   - Inside the loop, set a new target (`newTarget`) as the difference between the target (`Target`) and the current element (`nums[i]`).
+
+3. **Two-Pointer Technique:**
+   - Initialize two pointers (`li` and `ri`) to find pairs that sum up to the `newTarget`.
+   - Use a `while` loop that continues as long as `li` is less than `ri`.
+   - If the sum of elements at `li` and `ri` is less than `newTarget`, increment `li`.
+   - If the sum is greater than `newTarget`, decrement `ri`.
+   - If the sum is equal to `newTarget`, a triplet is found:
+     - Calculate a custom hash for the triplet using the `gethash` function.
+     - If the hash is not in the HashSet, add the triplet to the result and add the hash to the HashSet.
+     - Increment `li` and decrement `ri`.
+
+4. **Custom Hash Function:**
+   - The `gethash` function combines the three values (x, y, z) into a long integer using a multiplication and addition approach. This is done to uniquely represent each triplet.
+
+5. **Return the Result:**
+   - Return the `result` list containing all unique triplets.
+
+### Explanation:
+
+- The algorithm takes advantage of the fact that sorting the array allows for efficient use of the two-pointer technique.
+- The custom hash function helps in identifying and avoiding duplicate triplets.
+- The HashSet (`set`) is used to store unique combinations of triplets to ensure uniqueness in the result.
+
+### Time Complexity:
+
+The time complexity of this algorithm is O(n^2), where n is the length of the input array. This is because the code involves sorting the array and then using two pointers to iterate through the array.
+
+### Space Complexity:
+
+The space complexity is O(n), where n is the length of the input array. The HashSet is used to store unique combinations of triplets, and in the worst case, it could store all unique triplets.
+
+In summary, my submitted code efficiently finds all unique triplets in the array that sum up to zero using a combination of sorting, the two-pointer technique, and a HashSet to ensure uniqueness in the result. The custom hash function plays a crucial role in avoiding duplicates.
