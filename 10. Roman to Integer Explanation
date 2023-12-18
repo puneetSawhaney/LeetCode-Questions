@@ -1,0 +1,39 @@
+My code is a Java implementation of a function that converts a Roman numeral represented as a string to an integer. 
+The algorithm iterates through the Roman numeral string, accumulating the corresponding numeric value. Let's break down the code and explain each part:
+
+Algorithm:
+
+1. **Initialize Variables:**
+   - `i`: A variable to iterate through the characters of the input string `s`.
+   - `num`: The variable to store the accumulated integer value.
+
+2. **Iterate Through the Roman Numeral String:**
+   - Enter a `while` loop that continues as long as `i` is less than the length of the string `s`.
+   - Inside the loop, check the current character in the Roman numeral string and update the numeric value accordingly.
+
+3. **Check Roman Numeral Characters:**
+   - Use a series of `if-else` statements to check the current character and its context to determine the corresponding numeric value.
+   - For each Roman numeral character, add or subtract the corresponding value to/from `num`.
+   - Note the special cases where subtraction is required, indicated by specific combinations of characters (e.g., 'CM' for 900 or 'IX' for 9).
+
+4. **Increment Index `i`:**
+   - Increment the index `i` after processing each character.
+
+5. **Return the Resulting Integer:**
+   - After the loop, return the final accumulated integer `num`.
+
+### Explanation:
+
+- The algorithm uses a loop to iterate through the Roman numeral string and updates the numeric value based on the current character and its context.
+- Special cases involving subtraction (e.g., 'CM', 'CD', 'XC', etc.) are handled to adjust the total value correctly.
+- The loop increments the index `i` after processing each character, ensuring that all characters in the string are considered.
+
+### Time Complexity:
+
+The time complexity of this algorithm is O(n), where n is the length of the input string `s`. The algorithm iterates through each character in the string.
+
+### Space Complexity:
+
+The space complexity is O(1) as the algorithm uses a constant amount of extra space regardless of the input size.
+
+In summary,my solution efficiently converts a Roman numeral string to an integer by iterating through the string and accumulating the corresponding numeric value. The special cases for subtraction are appropriately handled to ensure correct conversion.
