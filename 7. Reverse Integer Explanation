@@ -1,0 +1,41 @@
+Algorithm:
+
+1. **Initialize Variables:**
+   - Declare and initialize variables:
+     - `reverse`: To store the reversed integer.
+     - `neg`: A boolean variable to indicate whether the original integer was negative. Initialized to `false`.
+  
+2. **Handle Negative Input:**
+   - Check if the input `x` is negative.
+   - If it is, set the `neg` variable to `true` and convert `x` to its absolute value by negating it.
+
+3. **Reverse the Integer:**
+   - Enter a `while` loop that continues as long as `x` is greater than 0.
+   - Inside the loop:
+     - Check if the current value of `reverse` would overflow when multiplied by 10 (checking against `Integer.MAX_VALUE/10` and `Integer.MIN_VALUE/10`).
+     - If overflow is detected, return 0 to indicate that the reversal would result in an overflow.
+     - Otherwise, calculate the remainder (`rem`) by taking the modulus of `x` with 10.
+     - Update `reverse` by multiplying it by 10 and adding the remainder.
+
+4. **Handle Negative Result:**
+   - If the original integer was negative, negate the `reverse` variable to make it negative.
+
+5. **Return the Reversed Integer:**
+   - Return the final reversed integer.
+
+### Explanation:
+
+- The algorithm uses a `while` loop to reverse the digits of the input integer.
+- It checks for integer overflow conditions during the reversal process.
+- The use of the `neg` variable ensures that the sign of the original integer is preserved in the reversed integer.
+- The reversed integer is continuously built by adding the remainder of the division by 10 in each iteration.
+
+### Time Complexity:
+
+The time complexity of this algorithm is O(log(x)), where x is the input integer. This is because the number of digits in the integer determines the number of iterations in the loop.
+
+### Space Complexity:
+
+The space complexity is O(1) as the algorithm uses a constant amount of extra space regardless of the input size.
+
+In summary, the code efficiently reverses an integer, taking into account potential overflow conditions and preserving the sign of the original integer.
