@@ -1,0 +1,42 @@
+Algorithm:
+
+1. **Initialize StringBuilder:**
+   - Create a `StringBuilder` named `sb` to build the Roman numeral representation.
+
+2. **Process Thousands Place (M):**
+   - Call the `process` method to handle the thousands place (M) using the character '*'. The value of `num/1000` gives the number of thousands.
+   - Update `num` by taking the remainder after dividing by 1000.
+
+3. **Process Hundreds Place (C, D):**
+   - Call the `process` method to handle the hundreds place (C, D) using characters 'M', 'C', and 'D'. The value of `num/100` gives the number of hundreds.
+   - Update `num` by taking the remainder after dividing by 100.
+
+4. **Process Tens Place (X, L):**
+   - Call the `process` method to handle the tens place (X, L) using characters 'C', 'X', and 'L'. The value of `num/10` gives the number of tens.
+   - Update `num` by taking the remainder after dividing by 10.
+
+5. **Process Units Place (I, V):**
+   - Call the `process` method to handle the units place (I, V) using characters 'X', 'I', and 'V'. The value of `num` is used directly.
+
+6. **Process Method:**
+   - The `process` method takes the `StringBuilder` (`sb`), major, minor, middle characters, and the value of the current digit.
+   - It appends the appropriate Roman numeral characters based on the value of the digit, considering the rules of Roman numerals.
+
+Explanation of the Process Method:
+
+- The method appends characters based on the value of the digit:
+  - If the value is 1 to 3, it appends the minor character repeatedly.
+  - If the value is 4, it appends the minor character followed by the middle character.
+  - If the value is 5, it appends the middle character.
+  - If the value is 6 to 8, it appends the middle character followed by the minor character repeatedly.
+  - If the value is 9, it appends the minor character followed by the major character.
+
+### Time Complexity:
+
+The time complexity of this algorithm is constant because the number of digits in a Roman numeral representation is fixed.
+
+### Space Complexity:
+
+The space complexity is also constant as the algorithm uses a constant amount of extra space regardless of the input size.
+
+In summary, the code efficiently converts an integer to its Roman numeral representation by processing each digit and building the representation accordingly.
