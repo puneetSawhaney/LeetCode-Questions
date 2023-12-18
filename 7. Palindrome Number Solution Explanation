@@ -1,0 +1,13 @@
+Problem Statement is to determine whether a given integer is a palindrome. A palindrome is a number that reads the same forward and backward. The code starts by checking if the input integer is negative. If it is, the function immediately returns false, as negative numbers cannot be palindromes.
+
+Next, there is a check for the case where the input integer is 0. If it is, the function returns true, as 0 is a palindrome.
+
+For positive integers, the code initializes a variable named `org` to store the original value of the input integer. It also declares a variable `ans` and sets it to 0. The code then enters a while loop that continues as long as the input integer `x` is greater than 0.
+
+Within the loop, the code extracts the last digit of `x` using the modulus operator and stores it in the variable `rem`. The variable `ans` is then updated by multiplying its current value by 10 and adding the value of `rem`. This process effectively reverses the digits of the input integer.
+
+Finally, the last digit is removed from the input integer `x` by dividing it by 10. The loop continues until all digits of the original integer have been processed.
+
+After the loop, the code checks if the reversed integer (`ans`) is equal to the original integer (`org`). If they are equal, the function returns true, indicating that the original integer is a palindrome. Otherwise, it returns false.
+
+In summary, my algorithm reverses the digits of the input integer and checks if the reversed integer is the same as the original integer to determine whether the input is a palindrome or not.
