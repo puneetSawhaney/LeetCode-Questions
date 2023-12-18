@@ -2,39 +2,53 @@
 // please visit explanation file to understand the approach I followed
 
 class Solution {
-    public String intToRoman(int num) {
+    public int romanToInt(String s) {
         
-        StringBuilder sb = new StringBuilder();
+        int i =0;
+        int num =0;
+        while(i < s.length()){
 
-        process(sb, '*', 'M', '*', num/1000);
-        num = num % 1000;
-        process(sb, 'M', 'C', 'D', num/100);
-        num = num %100;
-        process(sb, 'C', 'X', 'L', num/10);
-        num = num % 10;
-        process(sb, 'X', 'I', 'V', num);
-
-        return sb.toString();
-    }
-
-    void process(StringBuilder sb, char major, char minor,char middle, int val){
-        if(val <= 3){
-            for(int i =1; i <=val ; i++){
-                sb.append(minor);
+            if(s.charAt(i) == 'M'){
+                num+=1000;
             }
-        }else if(val == 4){
-            sb.append(minor);
-            sb.append(middle);
-        }else if(val == 5){
-            sb.append(middle);
-        }else if(val <= 8){
-            sb.append(middle);
-            for(int i =6; i <=val ; i++){
-                sb.append(minor);
+            else if(s.charAt(i) == 'D'){
+                num+=500;
             }
-        }else if(val == 9){
-            sb.append(minor);
-            sb.append(major);
+            else if(s.charAt(i) == 'C' && i+1 <s.length() && s.charAt(i+1)=='M'){
+                num-=100;
+            }
+            else if(s.charAt(i) == 'C' && i+1 <s.length() && s.charAt(i+1)=='D'){
+                num-=100;
+            }
+            else if(s.charAt(i) == 'C'){
+                num+=100;
+            }
+            else if(s.charAt(i) == 'L'){
+                num+=50;
+            }
+            else if(s.charAt(i) == 'X' && i+1 <s.length() && s.charAt(i+1)=='C'){
+                num-=10;
+            }
+            else if(s.charAt(i) == 'X'&& i+1 <s.length() && s.charAt(i+1)=='L'){
+                num-=10;
+            }
+            else if(s.charAt(i) == 'X'){
+                num+=10;
+            }
+            else if(s.charAt(i) == 'V'){
+                num+=5;
+            }
+            else if(s.charAt(i) == 'I' && i+1 <s.length() && s.charAt(i+1)=='X'){
+                num-=1;
+            }
+            else if(s.charAt(i) == 'I' && i+1 <s.length() && s.charAt(i+1)=='V'){
+                num-=1;
+            }
+            else if(s.charAt(i) == 'I'){
+                num+=1;
+            }
+            i++;
         }
+        return num;
     }
 }
