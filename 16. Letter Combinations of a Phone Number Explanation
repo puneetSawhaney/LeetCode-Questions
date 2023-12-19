@@ -1,0 +1,27 @@
+My solution generates all possible letter combinations of a given phone number. Let's go through the algorithm step by step:
+
+The letterCombinations function is the entry point for the algorithm. It checks if the input digits string is empty. If it is, an empty list is returned since there are no letter combinations for an empty string. Otherwise, it calls the recursive function getletterCombinations with the initial index set to 0.
+
+The codes array contains the mapping of digits to the corresponding letters on a phone keypad.
+
+The getletterCombinations function is a recursive function that generates letter combinations starting from a given index in the digits string.
+
+The base case checks if the current index is equal to the length of the digits string. If true, it means we have reached the end of the current combination, and a list containing an empty string is returned as the base result.
+
+If the current index is not the last one, the function proceeds to generate combinations for the remaining digits.
+
+It retrieves the current digit from the digits string and obtains the corresponding letters from the codes array.
+
+It calls itself recursively with an incremented index to get the combinations for the remaining digits.
+
+For each letter in the current digit's code, the function iterates through the combinations obtained from the recursive call and appends the current letter to each combination. These combinations are added to the result list.
+
+The function returns the list of combinations generated for the current digit.
+
+The final result is a list of all possible letter combinations for the given phone number.
+
+Let's take an example:
+
+Input: "23"
+Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
+Here, the algorithm generates all possible combinations of letters corresponding to digits 2 and 3 on a phone keypad.

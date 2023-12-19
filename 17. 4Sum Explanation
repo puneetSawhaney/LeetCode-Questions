@@ -1,0 +1,61 @@
+My Solution aims to find all unique quadruplets in an array whose sum equals a given target. The algorithm uses a nested loop and a two-pointer approach to efficiently find the quadruplets. Additionally, it employs a HashSet (`Unique`) to ensure that the result contains unique quadruplets.
+
+Here's a step-by-step explanation of the code:
+
+1. **Sort the input array**: The first step is to sort the input array `nums`. Sorting makes it easier to identify unique quadruplets and facilitates the two-pointer approach.
+
+   Arrays.sort(nums);
+
+2. **Initialize variables**: Initialize the result list (`result`), a HashSet (`Unique`) to store unique quadruplets, and variables for the loop indices.
+
+   List<List<Integer>> result = new ArrayList<>();
+   HashSet<String> Unique = new HashSet<>();
+
+3. **Iterate through the array with two nested loops**: Use two nested loops to select the first two elements of the quadruplet (`nums[i]` and `nums[j]`). The outer loop (`i`) goes up to `nums.length - 3` to ensure there are at least four elements remaining.
+
+   for (int i = 0; i < nums.length - 3; i++) {
+       for (int j = i + 1; j < nums.length - 2; j++) {
+
+
+4. **Initialize two pointers (`li` and `ri`)**: Initialize two pointers, `li` (left index) and `ri` (right index), to find the remaining two elements of the quadruplet.
+
+   int li = j + 1;
+   int ri = nums.length - 1;
+
+
+5. **Use a while loop with the two-pointer approach**: Use a while loop to iterate through the array and adjust the pointers based on the sum of the elements at the current indices.
+
+
+   while (li < ri) {
+       long sum = nums[i] + nums[j] + nums[li] + nums[ri];
+
+
+6. **Compare the sum with the target**: Adjust the pointers based on whether the sum is less than, greater than, or equal to the target.
+
+   if (sum < target) {
+       li++;
+   } else if (sum > target) {
+       ri--;
+   } else {
+
+
+7. **Check for uniqueness and add to the result**: If a quadruplet is found, create a unique code for it using a `StringBuilder` (`sb`). Check if the code is already present in the HashSet (`Unique`). If not, add the code to the HashSet, add the quadruplet to the result list, and adjust the pointers.
+
+
+   StringBuilder sb = new StringBuilder();
+   sb.append(nums[i]).append(nums[j]).append(nums[li]).append(nums[ri]);
+   String code = sb.toString();
+   if (!Unique.contains(code)) {
+       Unique.add(code);
+       result.add(Arrays.asList(nums[i], nums[j], nums[li], nums[ri]));
+   }
+   li++;
+   ri--;
+
+
+8. **Return the result**: After both loops complete, return the list of unique quadruplets.
+
+   return result;
+
+
+The overall algorithm has a time complexity of O(n^3) due to the nested loops, and the use of HashSet ensures uniqueness, making the result list contain only distinct quadruplets.
