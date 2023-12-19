@@ -1,0 +1,19 @@
+My approach is merge sort algorithm for merging two sorted singly-linked lists. Let's break down the algorithm step by step:
+
+1. **Base Cases:**
+   - The first two lines check for base cases. If either of the input lists is null, it means there is nothing to merge, so the other list is returned. This handles the termination condition of the recursion.
+
+2. **Comparison and Recursive Merging:**
+   - The code then compares the values of the current nodes in both lists (`list1.val` and `list2.val`).
+   - If `list1.val` is less than or equal to `list2.val`, it means the node from `list1` should come first in the merged list.
+   - In this case, the code recursively calls `mergeTwoLists` with the next node from `list1` and the current node from `list2`. The `next` pointer of the current node in `list1` is then set to the result of the recursive call.
+   - If `list2.val` is greater, it means the node from `list2` should come first in the merged list.
+   - In this case, the code recursively calls `mergeTwoLists` with the current node from `list1` and the next node from `list2`. The `next` pointer of the current node in `list2` is then set to the result of the recursive call.
+
+3. **Return Merged List:**
+   - Finally, the merged list is returned. The choice of whether to return `list1` or `list2` is made based on the comparisons made during the recursion. The merged list is constructed in a way that ensures it is sorted in ascending order.
+
+4. **Recursion Unwinding:**
+   - As the recursion unwinds, the merged list is built step by step, and the correct `next` pointers are set to create the final merged list.
+
+The overall result is a merged list that contains all elements from both input lists in sorted order. The time complexity of this algorithm is O(n), where n is the total number of nodes in the merged list, as each node is visited and processed once.
