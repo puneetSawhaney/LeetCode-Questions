@@ -1,0 +1,46 @@
+The approach used in the provided code involves using two pointers, `slow` and `fast`, to traverse the linked list and identify the node to be removed. Additionally, a `prev` pointer is used to keep track of the node before the one to be removed. Here's a step-by-step explanation of the code:
+
+1. **Check for Empty List**: If the input linked list (`head`) is initially null, return null as there's nothing to remove.
+
+    if (head == null) {
+        return null;
+    }
+
+2. **Initialize Pointers**: Initialize two pointers, `slow` and `fast`, both initially pointing to the head of the linked list. Also, initialize a `prev` pointer to null.
+
+    ListNode slow = head;
+    ListNode fast = head;
+    ListNode prev = null;
+
+
+3. **Move `fast` Pointer Ahead by `n` Nodes**: Move the `fast` pointer ahead by `n` nodes. This is done to create a gap of `n` nodes between `fast` and `slow`.
+
+    for (int i = 1; i <= n; i++) {
+        fast = fast.next;
+    }
+
+
+4. **Move Both Pointers Until `fast` Reaches the End**: Move both `slow` and `fast` pointers simultaneously until `fast` reaches the end of the linked list. This creates a gap of `n` nodes between `slow` and `fast`.
+
+    while (fast != null) {
+        prev = slow;
+        slow = slow.next;
+        fast = fast.next;
+    }
+
+5. **Remove the Nth Node**: Once `fast` reaches the end, `slow` is pointing to the node to be removed. Use the `prev` pointer to update the `next` reference and effectively remove the `slow` node from the linked list.
+
+    if (prev == null) {
+        // If prev is null, it means the node to be removed is the head.
+        // Return the next node as the new head.
+        return head.next;
+    } else {
+        prev.next = slow.next;
+    }
+
+
+6. **Return the Updated Head**: Return the head of the linked list after the removal.
+
+    return head;
+
+The overall approach has a time complexity of O(N), where N is the number of nodes in the linked list, as each pointer traverses the list only once. The space complexity is O(1) as the algorithm uses a constant amount of extra space regardless of the input size.
