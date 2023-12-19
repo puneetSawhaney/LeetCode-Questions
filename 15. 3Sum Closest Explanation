@@ -1,0 +1,63 @@
+ThreeSumClosest problem:
+The goal of the problem is to find three integers in an array whose sum is closest to a given target integer. Here's an explanation of the code:
+
+
+class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        // Sort the array to make it easier to find the closest sum
+        Arrays.sort(nums);
+        
+        // Initialize result and gap variables
+        int result = 0;
+        int gap = Integer.MAX_VALUE;
+        
+        // Iterate through the array, considering each element as a potential starting point
+        for (int i = 0; i < nums.length - 2; i++) {
+            int li = i + 1; // Left index
+            int ri = nums.length - 1; // Right index
+
+            // Use two-pointer approach to find a triplet sum
+            while (li < ri) {
+                int sum = nums[i] + nums[li] + nums[ri];
+
+                // Update the result and gap if the current sum is closer to the target
+                if (sum < target) {
+                    int newGap = target - sum;
+                    if (newGap < gap) {
+                        gap = newGap;
+                        result = sum;
+                    }
+                    li++;
+                } else if (sum > target) {
+                    int newGap = sum - target;
+                    if (newGap < gap) {
+                        gap = newGap;
+                        result = sum;
+                    }
+                    ri--;
+                } else {
+                    // If the sum is equal to the target, return the sum as it is the closest
+                    return sum;
+                }
+            }
+        }
+
+        // Return the closest sum found during the iteration
+        return result;
+    }
+}
+Explanation:
+
+1. The array `nums` is sorted to simplify the process of finding the closest sum.
+
+2. The code uses a loop to iterate through the array, considering each element as a potential starting point for the triplet.
+
+3. Inside the loop, a two-pointer approach (`li` and `ri`) is used to find the triplet sum. The pointers start at the next element and the last element, respectively.
+
+4. The code compares the current triplet sum with the target and updates the `result` and `gap` if the current sum is closer to the target.
+
+5. The loop continues until the left pointer is less than the right pointer.
+
+6. If the sum is equal to the target, the function returns the sum, as it is the closest possible sum.
+
+7. Finally, the function returns the closest sum found during the iteration.
